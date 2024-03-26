@@ -8,18 +8,18 @@ export default function Contact() {
                 </div>
                 <img src="https://mambaui.com/assets/svg/doodle.svg" alt="" className="p-6 h-52 md:h-64" />
             </div>
-            <form novalidate="" className="space-y-6">
+            <form  className="space-y-6">
                 <div>
                     <label for="name" className="text-sm">Full name</label>
-                    <input id="name" type="text" placeholder="" className="w-full p-3 rounded dark:bg-gray-800 border" />
+                    <input id="name" type="text" placeholder="" className="w-full p-3 rounded dark:bg-gray-800 border" required/>
                 </div>
                 <div>
                     <label for="email" className="text-sm">Email</label>
-                    <input id="email" type="email" className="w-full p-3 rounded dark:bg-gray-800 border" />
+                    <input id="email" type="email" className="w-full p-3 rounded dark:bg-gray-800 border" required/>
                 </div>
                 <div>
                     <label for="message" className="text-sm">Message</label>
-                    <textarea id="message" rows="3" className="w-full p-3 rounded dark:bg-gray-800 border"></textarea>
+                    <textarea id="message" rows="3" className="w-full p-3 rounded dark:bg-gray-800 border" required></textarea>
                 </div>
                 <button type="submit" className="w-full p-3 text-sm font-bold tracki uppercase rounded bg-violet-300 dark:bg-violet-400 dark:text-gray-900">Send Message</button>
             </form>

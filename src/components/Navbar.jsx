@@ -14,17 +14,9 @@ export default function Navbar({ setTheme, theme }) {
 					</svg>
 				</a>
 				<ul className="items-stretch hidden space-x-3 md:flex">
+				
 					<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-						<Link to='/'>Home</Link>
-					</li>
-					<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-						<Link to='/blogs'>Blog</Link>
-					</li>
-					<li className="flex items-center px-4 -mb-1 dark:border-transparent">
-						<Link to='/about'>About</Link>
-					</li>
-					<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-						<Link to='/contact'>Contact</Link>
+						<Link to='/write'>write</Link>
 					</li>
 					<li className="flex items-center px-4 -mb-1  dark:border-transparent">
 						<Link to='/login'>Login</Link>
@@ -49,17 +41,9 @@ export default function Navbar({ setTheme, theme }) {
 							setToggle(toggle => !toggle)
 						}}
 						>
+						
 							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-								<Link to='/'>Home</Link>
-							</li>
-							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-								<Link to='/blogs'>Blog</Link>
-							</li>
-							<li className="flex items-center px-4 -mb-1 dark:border-transparent">
-								<Link to='/about'>About</Link>
-							</li>
-							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-								<Link to='/contact'>Contact</Link>
+								<Link to='/write'>write</Link>
 							</li>
 							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
 								<Link to='/login'>Login</Link>

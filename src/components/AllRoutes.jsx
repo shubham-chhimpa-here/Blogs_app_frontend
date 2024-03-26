@@ -12,11 +12,10 @@ export default function AllRoutes() {
         <Routes>
 
 
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<BlogGrid />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Signup />} />
-            <Route path="/blogs" element={<BlogGrid />} />
-            <Route path="/contact" element= { <Contact />} />
+
             <Route path="/blogs/:blogId" element={<Blog />} />
             <Route path="/:error" element={<Error />} />
 
