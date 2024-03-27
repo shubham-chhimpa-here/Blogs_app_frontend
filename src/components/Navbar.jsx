@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import PrivateRoute from "./PrivateRoute";
 
 export default function Navbar({ setTheme, theme }) {
 
@@ -19,7 +20,7 @@ export default function Navbar({ setTheme, theme }) {
 						<Link to='/write'>write</Link>
 					</li>
 					<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-						<Link to='/login'>Login</Link>
+						<PrivateRoute />
 					</li>
 
 					{/* <button onClick={() => { setTheme(theme == "dark" ? "light" : "dark") }}>🕸</button> */}
@@ -46,7 +47,7 @@ export default function Navbar({ setTheme, theme }) {
 								<Link to='/write'>write</Link>
 							</li>
 							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-								<Link to='/login'>Login</Link>
+							<PrivateRoute />
 							</li>
 
 							{/* <button onClick={() => { setTheme(theme == "dark" ? "light" : "dark") }}>🕸</button> */}
