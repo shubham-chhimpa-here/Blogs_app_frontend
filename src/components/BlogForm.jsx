@@ -1,27 +1,51 @@
+import { useState } from "react"
+
 export default function BlogForm() {
-    return <>
-   <div className="flex flex-col max-w-xl p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800 m-auto">
-	
-	<form  className="space-y-12">
-    <div className="space-y-2">
-			<div>
-				<button type="button" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-green-600 dark:text-gray-50">Save</button>
-			</div>
-			
-		</div>
-		<div className="space-y-4">
-			<div>
-				
-				<input type="text" name="email" id="email" placeholder="title" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
-			</div>
-			<div>
-				<div className="flex justify-between mb-2">
-					<textarea  className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 min-h-64"></textarea>
-                    </div>
-					</div>
-		</div>
-	
-	</form>
-</div>
-    </>
+	const [newPost, setNewPost] = useState({
+		title: "", content: ""
+	})
+
+	function sendData(data) {
+		const url = `http://localhost:8080/blog/add`
+		fetch(url, {
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: {
+				'content-type': 'application/json'
+			}
+		})
+
+	}
+
+	function handleChange(e) {
+		const { name, value } = e.target
+		setNewPost(state => ({ ...state, [name]: value }))
+	}
+
+
+	function handleSubmit(e) {
+		e.preventDefault()
+		sendData(newPost)
+	}
+	return <>
+
+
+		<section className="p-6 text-gray-800">
+			<form onSubmit={handleSubmit} className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-50">
+				<h2 className="w-full text-3xl font-bold leading-tight">Contact us</h2>
+				<div>
+					<label htmlFor="name" className="block mb-1 ml-1">Name</label>
+					<input id="name" name="title" type="text" placeholder="Your name" onChange={handleChange} required className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-green-600 bg-gray-100" />
+				</div>
+
+				<div>
+					<label htmlFor="message" className="block mb-1 ml-1">Message</label>
+					<textarea id="message" name="content" required type="text" placeholder="Message..." onChange={handleChange} className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-green-600 bg-gray-100"></textarea>
+				</div>
+				<div>
+					<button type="submit" className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-green-600 focus:ring-green-600 hover:ring-green-600 text-gray-50">Send</button>
+				</div>
+			</form>
+		</section>
+	</>
 }
