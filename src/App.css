@@ -12,3 +12,10 @@
     color: rgb(31, 41, 55);
     line-height: 26px;
 }
+
+.main-article pre {
+    background: rgb(39,40,34);
+    color: rgb(248, 248, 242);
+    padding: 1rem;
+    border-radius: 5px;
+}
