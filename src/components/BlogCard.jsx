@@ -30,7 +30,7 @@ export default function BlogCard({ data }) {
 	return <>
 
 		<div className="bg-gray-100 text-gray-800">
-			<div className="container max-w-4xl px-10 py-6  rounded-lg shadow-sm bg-white">
+			<div className="container max-w-4xl px-10 py-6   rounded-lg shadow-sm bg-white">
 				<div className="flex items-center justify-between">
 					<span className="text-sm text-gray-600">{y}</span>
 					<span className="px-2 py-1 font-bold rounded bg-green-600 text-gray-50">{views} views</span>

@@ -40,10 +40,10 @@ export default function Blog() {
 		return "loading..."
 	}
 	return <>
-	<div className="bg-gray-50 p-16">
+	<div className="bg-gray-50 md:p-16 p-2">
 
-		<article className="max-w-screen-lg mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 lg:p-10 main-article">
-			<div className="w-full mx-auto space-y-4 text-center">
+		<article className="max-w-screen-lg mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-2 lg:p-10 main-article">
+			<div className="w-full mx-auto space-y-4 text-center ">
 				{/* <p className="text-xs font-semibold tracki uppercase">#TailwindCSS</p> */}
 				<h1 className="text-center text-xl md:text-3xl justify-center lg:text-4xl font-semibold text-gray-800 dark:text-white mb-1 flex"> {post.title}</h1>
 				<p className="text-sm dark:text-gray-400">by
@@ -53,7 +53,7 @@ export default function Blog() {
 					<time dateTime="2021-02-12 15:34:18-0200"> {getAnswer(post.createdAt)}</time>
 				</p>
 			</div>
-			<div className="dark:text-gray-100 m-6" dangerouslySetInnerHTML={{ __html: marked.parse(post.content || "") }} >
+			<div className="dark:text-gray-100 my-6" dangerouslySetInnerHTML={{ __html: marked.parse(post.content || "") }} >
 				{/* <p>{post.content}</p> */}
 			</div>
 			{/* <div className="pt-12 border-t dark:border-gray-700">
