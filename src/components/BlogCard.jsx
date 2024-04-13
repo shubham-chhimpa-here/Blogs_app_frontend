@@ -19,7 +19,7 @@ export default function BlogCard({item}) {
 		</div>
 		<div className="flex items-center justify-between mt-4">
 		<Link className="hover:underline dark:text-violet-400" to={`/blog/${_id}`}>Read more</Link>
-			<div className="flex items-center text-gray-600 gap-4">
+			<div className="flex items-center text-gray-600 gap-2 ">
 				<a rel="noopener noreferrer" href="#" className="flex items-center">
 					<img src="https://source.unsplash.com/50x50/?portrait" alt="avatar" className="object-cover w-10 h-10 mx-4 rounded-full bg-gray-500" />
 					<span className="hover:underline text-gray-600">Leroy Jenkins</span>

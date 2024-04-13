@@ -34,17 +34,17 @@ export default function BlogForm() {
 		<section className="p-6 text-gray-800">
 			<div className="flex gap-4">
 
-			<form onSubmit={handleSubmit} className="container w-full  p-8 mx-auto  rounded-md shadow bg-gray-50 flex-1">
+			<form onSubmit={handleSubmit} className="container w-full  p-8 mx-auto  rounded-md shadow flex-1">
 				
 				<div>
-					<input id="name" name="title" type="text" placeholder="Title" onChange={handleChange} required className="block w-full p-2  focus:outline-none   bg-gray-100" />
+					<input id="name" name="title" type="text" placeholder="Title" onChange={handleChange} required className="block w-full p-2  focus:outline-none   " />
 				</div>
 
 				<div>
-					<textarea id="message" name="content" required type="text" placeholder="Message..." onChange={handleChange} className="block w-full p-2  autoexpand focus:outline-none bg-gray-100 h-min"></textarea>
+					<textarea id="message" name="content" required type="text" placeholder="Message..." onChange={handleChange} className="block w-full p-2  autoexpand focus:outline-none  min-h-screen"></textarea>
 				</div>
 				<div>
-					<button type="submit" className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-green-600 focus:ring-green-600 hover:ring-green-600 text-gray-50">Send</button>
+					<button type="submit" className="w-full px-4 py-2 mt-6 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-green-600 focus:ring-green-600 hover:ring-green-600 text-gray-50">Send</button>
 				</div>
 			</form>
 			
@@ -53,12 +53,7 @@ export default function BlogForm() {
 			<div className="w-full mx-auto space-y-4 text-center">
 				{/* <p className="text-xs font-semibold tracki uppercase">#TailwindCSS</p> */}
 				<h1 className="text-center text-xl md:text-3xl justify-center lg:text-4xl font-semibold text-gray-800 dark:text-white mb-1 flex"> {newPost.title}</h1>
-				<p className="text-sm dark:text-gray-400">by
-					<a rel="noopener noreferrer" href="#" target="_self" className="underline dark:text-violet-400">
-						<span itemprop="name" className="px-2">Leroy Jenkins</span>
-					</a>on
-					<time datetime="2021-02-12 15:34:18-0200">Feb 12th 2021</time>
-				</p>
+				
 			</div>
 			<div className="dark:text-gray-100 mt-6" dangerouslySetInnerHTML={{ __html: marked.parse(newPost.content || "") }} >
 				{/* <p>{post.content}</p> */}

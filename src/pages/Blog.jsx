@@ -8,6 +8,7 @@ export default function Blog() {
 	})
 	const [post, setPost] = useState({})
 	const { blogId } = useParams()
+	const [isloading, setIsloading] = useState(true)
 
 	function getData(id) {
 		const url = `http://localhost:8080/blog/${id}`
@@ -15,6 +16,7 @@ export default function Blog() {
 			.then(res => res.json())
 			.then(res => {
 				setPost(res)
+				setIsloading(false)
 				console.log(res)
 			})
 			.catch(err => {
@@ -26,6 +28,15 @@ export default function Blog() {
 	useEffect(() => {
 		getData(blogId)
 	}, [])
+
+	function getAnswer(x) {
+		let y = x.split(' ')
+		return y[1]+" "+y[2] +', ' +y[3]
+	}
+
+	if(isloading) {
+		return "loading..."
+	}
 	return <>
 	<div className="bg-gray-50 p-16">
 
@@ -37,13 +48,13 @@ export default function Blog() {
 					<a rel="noopener noreferrer" href="#" target="_self" className="underline dark:text-violet-400">
 						<span itemprop="name" className="px-2">Leroy Jenkins</span>
 					</a>on
-					<time datetime="2021-02-12 15:34:18-0200">Feb 12th 2021</time>
+					<time dateTime="2021-02-12 15:34:18-0200"> {getAnswer(post.createdAt)}</time>
 				</p>
 			</div>
-			<div className="dark:text-gray-100 mt-6" dangerouslySetInnerHTML={{ __html: marked.parse(post.content || "") }} >
+			<div className="dark:text-gray-100 m-6" dangerouslySetInnerHTML={{ __html: marked.parse(post.content || "") }} >
 				{/* <p>{post.content}</p> */}
 			</div>
-			<div className="pt-12 border-t dark:border-gray-700">
+			{/* <div className="pt-12 border-t dark:border-gray-700">
 				<div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
 					<img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
 					<div className="flex flex-col">
@@ -73,7 +84,7 @@ export default function Blog() {
 						</svg>
 					</a>
 				</div>
-			</div>
+			</div> */}
 		</article>
 	</div>
 
