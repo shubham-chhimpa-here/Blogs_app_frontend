@@ -15,6 +15,8 @@ export default function AllRoutes() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Signup />} />
             <Route path="/write" element={<BlogForm />} />
+            <Route path="/blogs" element={<BlogGrid />} />
+            
             <Route path="/blog/:blogId" element={<Blog />} />
             <Route path="/:error" element={<Error />} />
 

@@ -9,8 +9,9 @@ export default function Blog() {
 	const [post, setPost] = useState({})
 	const { blogId } = useParams()
 	const [isloading, setIsloading] = useState(true)
+	const [admin, setAdmin] = useState(true)
 
-	
+
 
 	function getData(id) {
 		const url = `http://localhost:8080/blog/${id}`
@@ -19,7 +20,7 @@ export default function Blog() {
 			.then(res => {
 				setPost(res)
 				setIsloading(false)
-				console.log(res)
+
 			})
 			.catch(err => {
 				console.log(err)
@@ -33,30 +34,42 @@ export default function Blog() {
 
 	function getAnswer(x) {
 		let y = x.split(' ')
-		return y[1]+" "+y[2] +', ' +y[3]
+		return y[1] + " " + y[2] + ', ' + y[3]
 	}
 
-	if(isloading) {
+	if (isloading) {
 		return "loading..."
 	}
 	return <>
-	<div className="bg-gray-50 md:p-16 p-2">
+		<div className="bg-gray-50 md:p-16 p-2">
 
-		<article className="max-w-screen-lg mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-2 lg:p-10 main-article">
-			<div className="w-full mx-auto space-y-4 text-center ">
-				{/* <p className="text-xs font-semibold tracki uppercase">#TailwindCSS</p> */}
-				<h1 className="text-center text-xl md:text-3xl justify-center lg:text-4xl font-semibold text-gray-800 dark:text-white mb-1 flex"> {post.title}</h1>
-				<p className="text-sm dark:text-gray-400">by
-					<a rel="noopener noreferrer" href="#" target="_self" className="underline dark:text-violet-400">
-						<span itemprop="name" className="px-2">Leroy Jenkins</span>
-					</a>on
-					<time dateTime="2021-02-12 15:34:18-0200"> {getAnswer(post.createdAt)}</time>
-				</p>
-			</div>
-			<div className="dark:text-gray-100 my-6" dangerouslySetInnerHTML={{ __html: marked.parse(post.content || "") }} >
-				{/* <p>{post.content}</p> */}
-			</div>
-			{/* <div className="pt-12 border-t dark:border-gray-700">
+			<article className="max-w-screen-lg mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-2 lg:p-10 main-article">
+				<div className="w-full mx-auto space-y-4 text-center ">
+					{/* <p className="text-xs font-semibold tracki uppercase">#TailwindCSS</p> */}
+					<h1 className="text-center text-xl md:text-3xl justify-center lg:text-4xl font-semibold text-gray-800 dark:text-white mb-1 flex"> {post.title}</h1>
+					<p className="text-sm dark:text-gray-400">by
+						<a rel="noopener noreferrer" href="#" target="_self" className="underline dark:text-violet-400">
+							<span className="px-2">Team Saya</span>
+						</a>on
+						<time dateTime="2021-02-12 15:34:18-0200"> {getAnswer(post.createdAt)}</time>
+					</p>
+				</div>
+				{
+					admin && <div className="py-6">
+						<hr />
+						
+						<div className="py-3 flex justify-end gap-4 font-bold">
+							<span>{post.views} views</span>
+							<span>{post.impressions} impression</span>
+
+						</div>
+						<hr />
+					</div>
+				}
+				<div className="dark:text-gray-100 my-6" dangerouslySetInnerHTML={{ __html: marked.parse(post.content || "") }} >
+					{/* <p>{post.content}</p> */}
+				</div>
+				{/* <div className="pt-12 border-t dark:border-gray-700">
 				<div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
 					<img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
 					<div className="flex flex-col">
@@ -87,8 +100,8 @@ export default function Blog() {
 					</a>
 				</div>
 			</div> */}
-		</article>
-	</div>
+			</article>
+		</div>
 
 	</>
 }

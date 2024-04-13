@@ -24,7 +24,7 @@ export default function Navbar({ setTheme, theme }) {
 						<Link to='/'>Home</Link>
 					</li>
 					<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-						<Link to='/blog'>blog</Link>
+						<Link to='/blogs'>blogs</Link>
 					</li>
 
 
@@ -41,12 +41,15 @@ export default function Navbar({ setTheme, theme }) {
 						</svg>
 					</button>
 
-					<div className={`navtoggle ${toggle ? "block" : "hidden"} bg-white text-black fixed inset-0 z-50 rounded-2xl`}>
-						<ul className=" space-y-3 p-4"
+					<div className={`navtoggle ${toggle ? "block" : "hidden"} bg-white text-black fixed inset-0 z-50 rounded-2xl
+					flex items-center justify-center
+					`}>
+						<ul className=" space-y-3 p-4  font-bold text-xl"
 							onClick={() => {
 								setToggle(toggle => !toggle)
 							}}
 						>
+							<button className="fixed top-10 right-10 border p-4 ">X</button>
 
 							{/* <li className="flex items-center px-4 -mb-1  dark:border-transparent">
 								<Link to='/write'>write</Link>
@@ -54,11 +57,11 @@ export default function Navbar({ setTheme, theme }) {
 							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
 							<PrivateRoute />
 							</li> */}
-							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
+							<li className="flex items-center px-4 -mb-1 ">
 								<Link to='/'>Home</Link>
 							</li>
-							<li className="flex items-center px-4 -mb-1  dark:border-transparent">
-								<Link to='/blog'>blog</Link>
+							<li className="flex items-center px-4 -mb-1 ">
+								<Link to='/blogs'>blogs</Link>
 							</li>
 
 							{/* <button onClick={() => { setTheme(theme == "dark" ? "light" : "dark") }}>🕸</button> */}
