@@ -1,3 +1,4 @@
+import { marked } from "marked"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
@@ -26,10 +27,12 @@ export default function Blog() {
 		getData(blogId)
 	}, [])
 	return <>
-		<article className="max-w-2xl px-6 py-24 mx-auto space-y-12 dark:bg-gray-800 dark:text-gray-50">
+	<div className="bg-gray-50 p-16">
+
+		<article className="max-w-screen-lg mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 lg:p-10 main-article">
 			<div className="w-full mx-auto space-y-4 text-center">
 				{/* <p className="text-xs font-semibold tracki uppercase">#TailwindCSS</p> */}
-				<h1 className="text-4xl font-bold leadi md:text-5xl"> {post.title}</h1>
+				<h1 className="text-center text-xl md:text-3xl justify-center lg:text-4xl font-semibold text-gray-800 dark:text-white mb-1 flex"> {post.title}</h1>
 				<p className="text-sm dark:text-gray-400">by
 					<a rel="noopener noreferrer" href="#" target="_self" className="underline dark:text-violet-400">
 						<span itemprop="name" className="px-2">Leroy Jenkins</span>
@@ -37,8 +40,8 @@ export default function Blog() {
 					<time datetime="2021-02-12 15:34:18-0200">Feb 12th 2021</time>
 				</p>
 			</div>
-			<div className="dark:text-gray-100">
-				<p>{post.content}</p>
+			<div className="dark:text-gray-100 mt-6" dangerouslySetInnerHTML={{ __html: marked.parse(post.content || "") }} >
+				{/* <p>{post.content}</p> */}
 			</div>
 			<div className="pt-12 border-t dark:border-gray-700">
 				<div className="flex flex-col space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
@@ -72,5 +75,7 @@ export default function Blog() {
 				</div>
 			</div>
 		</article>
+	</div>
+
 	</>
 }

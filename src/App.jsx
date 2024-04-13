@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-    <div className='dark bg-gray-800 min-h-screen'>
+    <div className=' min-h-screen'>
 
     <Navbar />
     <AllRoutes />

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {marked} from 'marked'
 
 export default function BlogForm() {
 	const [newPost, setNewPost] = useState({
@@ -31,21 +32,43 @@ export default function BlogForm() {
 
 
 		<section className="p-6 text-gray-800">
-			<form onSubmit={handleSubmit} className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-50">
-				<h2 className="w-full text-3xl font-bold leading-tight">Contact us</h2>
+			<div className="flex gap-4">
+
+			<form onSubmit={handleSubmit} className="container w-full  p-8 mx-auto  rounded-md shadow bg-gray-50 flex-1">
+				
 				<div>
-					<label htmlFor="name" className="block mb-1 ml-1">Name</label>
-					<input id="name" name="title" type="text" placeholder="Your name" onChange={handleChange} required className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-green-600 bg-gray-100" />
+					<input id="name" name="title" type="text" placeholder="Title" onChange={handleChange} required className="block w-full p-2  focus:outline-none   bg-gray-100" />
 				</div>
 
 				<div>
-					<label htmlFor="message" className="block mb-1 ml-1">Message</label>
-					<textarea id="message" name="content" required type="text" placeholder="Message..." onChange={handleChange} className="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-green-600 bg-gray-100"></textarea>
+					<textarea id="message" name="content" required type="text" placeholder="Message..." onChange={handleChange} className="block w-full p-2  autoexpand focus:outline-none bg-gray-100 h-min"></textarea>
 				</div>
 				<div>
 					<button type="submit" className="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ring-opacity-50 bg-green-600 focus:ring-green-600 hover:ring-green-600 text-gray-50">Send</button>
 				</div>
 			</form>
+			
+			<div className=" flex-1  main-article">
+			<article className="max-w-screen-lg mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 lg:p-10 main-article">
+			<div className="w-full mx-auto space-y-4 text-center">
+				{/* <p className="text-xs font-semibold tracki uppercase">#TailwindCSS</p> */}
+				<h1 className="text-center text-xl md:text-3xl justify-center lg:text-4xl font-semibold text-gray-800 dark:text-white mb-1 flex"> {newPost.title}</h1>
+				<p className="text-sm dark:text-gray-400">by
+					<a rel="noopener noreferrer" href="#" target="_self" className="underline dark:text-violet-400">
+						<span itemprop="name" className="px-2">Leroy Jenkins</span>
+					</a>on
+					<time datetime="2021-02-12 15:34:18-0200">Feb 12th 2021</time>
+				</p>
+			</div>
+			<div className="dark:text-gray-100 mt-6" dangerouslySetInnerHTML={{ __html: marked.parse(newPost.content || "") }} >
+				{/* <p>{post.content}</p> */}
+			</div>
+			
+		</article>
+
+			</div>
+			</div>
+
 		</section>
 	</>
 }
