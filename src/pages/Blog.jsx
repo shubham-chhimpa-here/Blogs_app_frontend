@@ -10,6 +10,8 @@ export default function Blog() {
 	const { blogId } = useParams()
 	const [isloading, setIsloading] = useState(true)
 
+	
+
 	function getData(id) {
 		const url = `http://localhost:8080/blog/${id}`
 		fetch(url)

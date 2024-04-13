@@ -18,6 +18,10 @@ export default function BlogGrid() {
 
 	}
 
+	function deletePost(id) {
+		setPosts(posts => posts.filter(ele=> ele._id != id))
+	}
+
 	useEffect(() => {
 		getData()
 	}, [])
@@ -27,7 +31,7 @@ export default function BlogGrid() {
 
 				<div className="grid grid-cols-1 gap-x-4 gap-y-8 ">
 					{posts.map((item, i) => {
-						return <BlogCard key={i} item={item} />
+						return <BlogCard key={i} data={{item, deletePost}} />
 					})}
 				</div>
 			</div>
