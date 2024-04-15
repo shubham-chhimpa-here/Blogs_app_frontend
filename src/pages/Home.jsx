@@ -5,6 +5,7 @@ export default function Home() {
 
         Share you story with world!
         </p>
+      
     </div>
     </>
 }
