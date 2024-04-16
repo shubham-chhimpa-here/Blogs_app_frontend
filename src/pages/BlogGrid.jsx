@@ -10,7 +10,7 @@ export default function BlogGrid() {
 		 .then(res => res.json())
 		 .then(res => {
 			setPosts(res)
-			console.log(res)
+			
 		 })
 		 .catch(err => {
 			console.log(err)
