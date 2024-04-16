@@ -11,7 +11,7 @@ export default function BlogCard({ data }) {
 
 
 	function handleDelete(x) {
-		const url = `http://localhost:8080/blog/${x}`
+		const url = `${import.meta.env.VITE_BASE_URL}blog/${x}`
 		fetch(url, {
 			method: 'DELETE',
 			headers: {

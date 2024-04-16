@@ -9,12 +9,12 @@ export default function Blog() {
 	const [post, setPost] = useState({})
 	const { blogId } = useParams()
 	const [isloading, setIsloading] = useState(true)
-	const [admin, setAdmin] = useState(true)
+	const [admin, setAdmin] = useState(false)
 
 
 
 	function getData(id) {
-		const url = `http://localhost:8080/blog/${id}`
+		const url = `${import.meta.env.VITE_BASE_URL}blog/${id}`
 		fetch(url)
 			.then(res => res.json())
 			.then(res => {

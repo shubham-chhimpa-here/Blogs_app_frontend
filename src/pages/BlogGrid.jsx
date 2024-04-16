@@ -5,7 +5,7 @@ export default function BlogGrid() {
 	const [posts, setPosts] = useState([])
 
 	 function getData() {
-		const url = `http://localhost:8080/blog`
+		const url = `${import.meta.env.VITE_BASE_URL}blog`
 		 fetch(url)
 		 .then(res => res.json())
 		 .then(res => {

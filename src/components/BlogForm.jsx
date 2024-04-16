@@ -7,7 +7,7 @@ export default function BlogForm() {
 	})
 
 	function sendData(data) {
-		const url = `http://localhost:8080/blog/add`
+		const url = `${import.meta.env.VITE_BASE_URL}blog/add`
 		fetch(url, {
 			method: 'POST',
 			body: JSON.stringify(data),

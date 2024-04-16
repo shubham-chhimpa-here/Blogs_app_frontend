@@ -8,10 +8,13 @@
     font-weight: 700 ;
     margin-block: 1rem .5rem;
 }
+
+
 .main-article p{
     color: rgb(31, 41, 55);
-    line-height: 26px;
+    margin-block: .2rem;
 }
+
 
 .main-article pre {
     background: rgb(39,40,34);
