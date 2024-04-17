@@ -14,6 +14,17 @@
     color: rgb(31, 41, 55);
     margin-block: .2rem;
 }
+.main-article a{
+    color: blue;
+    margin-block: .2rem;
+}
+.main-article .red-heading{
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-block: .2rem;
+}
 
 
 .main-article pre {
