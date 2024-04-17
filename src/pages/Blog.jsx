@@ -1,6 +1,7 @@
 import { marked } from "marked"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import Loading2 from "../components/Loading2"
 
 export default function Blog() {
 	window.scrollTo({
@@ -38,7 +39,7 @@ export default function Blog() {
 	}
 
 	if (isloading) {
-		return "loading..."
+		return <Loading2 />
 	}
 	return <>
 		<div className="bg-gray-50 md:p-16 p-2">

@@ -32,6 +32,7 @@ export default function BlogForm() {
 
 
 	function handleSubmit(e) {
+		// e.preventDefault()
 		
 		newPost.createdAt = Date()
 		sendData(newPost)

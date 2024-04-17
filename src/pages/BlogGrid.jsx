@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import BlogCard from "../components/BlogCard";
+import Loading from "../components/Loading";
 
 export default function BlogGrid() {
 	const [posts, setPosts] = useState([])
+	const [loading, setLoading] = useState(true)
 
 	 function getData() {
 		const url = `${import.meta.env.VITE_BASE_URL}blog`
@@ -10,6 +12,7 @@ export default function BlogGrid() {
 		 .then(res => res.json())
 		 .then(res => {
 			setPosts(res)
+			setLoading(false)
 			
 		 })
 		 .catch(err => {
@@ -30,9 +33,9 @@ export default function BlogGrid() {
 			<div className="container p-6 mx-auto space-y-8">
 
 				<div className="grid grid-cols-1 gap-x-4 gap-y-8 ">
-					{posts.map((item, i) => {
+					{!loading ?  posts.map((item, i) => {
 						return <BlogCard key={i} data={{item, deletePost}} />
-					})}
+					}) : <Loading />}
 				</div>
 			</div>
 		</section>
