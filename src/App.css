@@ -31,6 +31,25 @@
     color: green;
     margin-block: 1rem .5rem;
 }
+.main-article ul{
+    list-style: disc;
+    margin-block: 1rem .5rem;
+}
+
+@media screen and (min-width: 601px) {
+    .main-article ul{
+        margin-left: 2rem;
+    }
+
+    .main-article ol{
+        margin-left: 2rem;
+    }
+    
+}
+.main-article ol{
+    list-style: decimal;
+    margin-block: 1rem .5rem;
+}
 
 .main-article .red-heading{
     color: red;

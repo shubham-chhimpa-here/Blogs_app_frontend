@@ -17,10 +17,12 @@ export default function BlogForm() {
 		})
 		.then(res => res.json())
 		.then(res => {
-			console.log(res)
+			res
+			// console.log(res)
 		})
 		.catch(err => {
-			console.log(err)
+			err
+			// console.log(err)
 		})
 
 	}
@@ -32,7 +34,7 @@ export default function BlogForm() {
 
 
 	function handleSubmit(e) {
-		// e.preventDefault()
+		e.preventDefault()
 		
 		newPost.createdAt = Date()
 		sendData(newPost)
