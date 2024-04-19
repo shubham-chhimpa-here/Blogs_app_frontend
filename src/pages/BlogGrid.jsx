@@ -33,7 +33,7 @@ export default function BlogGrid() {
 			<div className="container p-6 mx-auto space-y-8">
 
 				<div className="grid grid-cols-1 gap-x-4 gap-y-8 ">
-					{!loading ?  posts.map((item, i) => {
+					{!loading ?  posts.reverse().map((item, i) => {
 						return <BlogCard key={i} data={{item, deletePost}} />
 					}) : <Loading />}
 				</div>
